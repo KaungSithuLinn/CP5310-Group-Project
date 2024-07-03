@@ -3,7 +3,7 @@
  * http://www.templatemo.com/tm-475-holiday
  *
  * COLOR CODES
- * Yellow	#FCDD44
+ * Veri Pery	#6f3cb6
  *
  */
 
@@ -45,7 +45,7 @@ body {
   padding-top: 20px;
 }
 .tm-site-name {
-  color: #fcdd44;
+  color: #6f3cb6;
   font-size: 27px;
   font-weight: 600;
   text-transform: uppercase;
@@ -75,7 +75,7 @@ body {
 .tm-nav li a.active,
 .tm-nav li a:focus,
 .tm-nav li a:hover {
-  background: #fcdd44;
+  background: #6f3cb6;
   color: #000;
 }
 
@@ -118,7 +118,7 @@ body {
   font-size: 34px;
 }
 .tm-yellow-text {
-  color: #fcdd44;
+  color: #6f3cb6;
 }
 .tm-banner-link {
   background: rgba(252, 221, 68, 0.39) none repeat scroll 0% 0%;
@@ -132,7 +132,7 @@ body {
 }
 .tm-banner-link:hover,
 .tm-banner-link:focus {
-  background: rgba(252, 221, 68, 1);
+  background: rgb(111, 60, 182);
   color: #000;
 }
 .flexslider.flexslider-banner {
@@ -144,7 +144,7 @@ body {
   text-align: center;
 }
 .flexslider.flexslider-banner .flex-direction-nav a:before {
-  color: #fcdd44;
+  color: #6f3cb6;
 }
 .flex-direction-nav a {
   height: 50px;
@@ -162,7 +162,7 @@ body {
   border-radius: 0;
 }
 .form-control:focus {
-  border-color: #fcdd44;
+  border-color: #6f3cb6;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset,
     0px 0px 8px rgba(252, 221, 68, 0.6);
 }
@@ -374,7 +374,7 @@ body {
   padding-bottom: 20px;
 }
 .tm-copyright-text a {
-  color: #fcdd44;
+  color: #6f3cb6;
 }
 
 .tm-copyright-text a:hover {
@@ -429,7 +429,7 @@ hr {
 }
 .tm-home-box-2-link:hover,
 .tm-home-box-2-link:focus {
-  color: #fcdd44;
+  color: #6f3cb6;
 }
 .border-left {
   border-left: 1px solid #ddd;
@@ -1020,7 +1020,7 @@ hr {
   .mobile-menu-icon {
     display: block;
     cursor: pointer;
-    color: #fcdd44;
+    color: #6f3cb6;
     font-size: 30px;
     position: fixed;
     top: 15px;

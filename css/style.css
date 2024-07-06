@@ -1,0 +1,243 @@
+/* Custom CSS */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  /* Added Roboto for a more modern look */
+  color: #333;
+  /* Default text color */
+}
+
+/* Navbar Styles */
+.navbar-light {
+  background-color: rgba(255, 255, 255, 0.9);
+  /* Semi-transparent background */
+  backdrop-filter: blur(10px);
+  /* Adds a blur effect */
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+  color: #6a1b9a;
+  transition: color 0.3s ease;
+  /* Smooth color transition on hover */
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #9575cd;
+  /* Lighter color on hover */
+}
+
+/* Hero Section */
+.hero {
+  background-color: #9575cd;
+  padding: 80px 0;
+  /* Increased padding for better spacing */
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  /* Larger font size */
+  margin-bottom: 30px;
+  font-weight: 700;
+  /* Bolder text */
+}
+
+.hero .search-bar {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.hero .search-bar input[type="text"] {
+  width: 50%;
+  margin-right: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+.hero .search-bar button {
+  background-color: #8e24aa;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.hero .search-bar button:hover {
+  background-color: #7b1fa2;
+}
+
+/* Section Styles */
+.featured-accommodations,
+.accommodation-types,
+.why-choose-us {
+  background-color: #f3e5f5;
+  /* Lighter background */
+  padding: 70px 0;
+  /* Increased padding */
+}
+
+.section-title {
+  color: #6a1b9a;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Card Styles */
+.card {
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #6a1b9a;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+}
+
+/* Pricing Section */
+.pricing {
+  background: rgba(227, 187, 237, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 70px 0;
+  text-align: center;
+}
+
+.pricing h2 {
+  color: #6a1b9a;
+  margin-bottom: 40px;
+}
+
+.pricing-cards {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 5%;
+}
+
+.pricing-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  padding: 30px;
+  width: calc(33.333% - 20px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-card h3 {
+  margin-top: 0;
+  color: #ff6666;
+  font-size: 1.8rem;
+}
+
+.pricing-card p {
+  font-size: 2rem;
+  margin: 20px 0;
+  color: #6a1b9a;
+  font-weight: 700;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  color: #6a1b9a;
+}
+
+.pricing-card ul li {
+  margin: 15px 0;
+}
+
+.pricing-card button {
+  background: rgba(255, 102, 102, 0.9);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  border-radius: 25px;
+  margin-top: 25px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.pricing-card button:hover {
+  background: rgba(204, 85, 85, 0.9);
+  transform: scale(1.05);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .pricing-card {
+    width: calc(50% - 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero .search-bar input[type="text"] {
+    width: 70%;
+  }
+
+  .pricing-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero .search-bar input[type="text"] {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .hero .search-bar button {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}

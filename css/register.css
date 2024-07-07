@@ -1,0 +1,54 @@
+/* Registration Page Styles */
+.hero {
+    background-color: #9575cd;
+    padding: 80px 0;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.register-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.register-form .form-group {
+    margin-bottom: 20px;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.register-form button[type="submit"] {
+    padding: 12px 0;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    background-color: #8e24aa;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-form button[type="submit"]:hover {
+    background-color: #7b1fa2;
+}
+
+.register-form .mt-3 {
+    text-align: center;
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodations - PureComfort: Luxury Stays in Singapore</title>
+    <meta name="description"
+        content="Explore PureComfort's range of luxury accommodations in Singapore. From cozy studios to spacious suites, find your perfect stay.">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">PureComfort</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="accommodations.html">Accommodations <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><span
+                                class="sr-only">Cart</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-in">Discover Our Accommodations</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Location | Check-in | Check-out | Guests"
+                    aria-label="Search accommodations">
+                <button type="button">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Types -->
+    <section class="accommodation-types py-5">
+        <div class="container">
+            <h2 class="section-title">Our Luxury Accommodations</h2>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="img/studio.jpg" class="card-img-top" alt="Cozy Studio" onclick="showRoomDetails(1)">
+                        <div class="card-body">
+                            <h3 class="card-title">Cozy Studio</h3>
+                            <p class="card-text">Perfect for solo travelers or couples</p>
+                            <p class="price">From $120/night</p>
+                            <button class="btn btn-primary" onclick="showRoomDetails(1)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="img/one-bedroom.jpg" class="card-img-top" alt="One-Bedroom Suite"
+                            onclick="showRoomDetails(2)">
+                        <div class="card-body">
+                            <h3 class="card-title">One-Bedroom Suite</h3>
+                            <p class="card-text">Spacious living for extended stays</p>
+                            <p class="price">From $180/night</p>
+                            <button class="btn btn-primary" onclick="showRoomDetails(2)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="img/two-bedroom.jpg" class="card-img-top" alt="Two-Bedroom Apartment"
+                            onclick="showRoomDetails(3)">
+                        <div class="card-body">
+                            <h3 class="card-title">Two-Bedroom Apartment</h3>
+                            <p class="card-text">Ideal for families or group travelers</p>
+                            <p class="price">From $250/night</p>
+                            <button class="btn btn-primary" onclick="showRoomDetails(3)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="img/penthouse.jpg" class="card-img-top" alt="Luxury Penthouse"
+                            onclick="showRoomDetails(4)">
+                        <div class="card-body">
+                            <h3 class="card-title">Luxury Penthouse</h3>
+                            <p class="card-text">Unparalleled luxury with stunning views</p>
+                            <p class="price">From $500/night</p>
+                            <button class="btn btn-primary" onclick="showRoomDetails(4)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="img/executive-suite.jpg" class="card-img-top" alt="Executive Suite"
+                            onclick="showRoomDetails(5)">
+                        <div class="card-body">
+                            <h3 class="card-title">Executive Suite</h3>
+                            <p class="card-text">Perfect for business travelers</p>
+                            <p class="price">From $220/night</p>
+                            <button class="btn btn-primary" onclick="showRoomDetails(5)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="img/family-suite.jpg" class="card-img-top" alt="Family Suite"
+                            onclick="showRoomDetails(6)">
+                        <div class="card-body">
+                            <h3 class="card-title">Family Suite</h3>
+                            <p class="card-text">Comfortable space for the whole family</p>
+                            <p class="price">From $280/night</p>
+                            <button class="btn btn-primary" onclick="showRoomDetails(6)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Amenities</h2>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="amenity-item text-center">
+                        <i class="fas fa-wifi fa-3x mb-3"></i>
+                        <h3>Free High-Speed WiFi</h3>
+                        <p>Stay connected with our complimentary high-speed internet access.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="amenity-item text-center">
+                        <i class="fas fa-dumbbell fa-3x mb-3"></i>
+                        <h3>Fitness Center</h3>
+                        <p>Keep up with your fitness routine in our state-of-the-art gym.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="amenity-item text-center">
+                        <i class="fas fa-utensils fa-3x mb-3"></i>
+                        <h3>Fully Equipped Kitchen</h3>
+                        <p>Enjoy the convenience of cooking your own meals in our modern kitchens.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>About PureComfort</h4>
+                    <p>Providing luxury accommodations in Singapore since 2010.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="accommodations.html">Accommodations</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Connect With Us</h4>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center">&copy; 2024 PureComfort. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Room Details Modal -->
+    <div id="roomDetailsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="roomDetailsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="roomDetailsModalLabel">Room Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="roomDetailsImage" src="" class="img-fluid mb-3" alt="Room Details">
+                    <h3 id="roomDetailsTitle"></h3>
+                    <p id="roomDetailsText"></p>
+                    <p id="roomDetailsPrice" class="font-weight-bold"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        const roomDetails = {
+            1: { img: 'img/studio.jpg', title: 'Cozy Studio', text: 'Our cozy studio apartments are perfect for solo travelers or couples. Featuring a comfortable queen-size bed, a fully equipped kitchenette, and a modern bathroom, these studios offer everything you need for a pleasant stay in Singapore.', price: 'From $120/night' },
+            2: { img: 'img/one-bedroom.jpg', title: 'One-Bedroom Suite', text: 'Ideal for extended stays, our one-bedroom suites offer a separate living area, a full kitchen, and a spacious bedroom with a king-size bed. Enjoy the comfort of home with the luxury of a high-end hotel.', price: 'From $180/night' },
+            3: { img: 'img/two-bedroom.jpg', title: 'Two-Bedroom Apartment', text: 'Perfect for families or groups, our two-bedroom apartments feature two separate bedrooms, a large living area, a full kitchen, and two bathrooms. Enjoy ample space and privacy during your stay in Singapore.', price: 'From $250/night' },
+            4: { img: 'img/penthouse.jpg', title: 'Luxury Penthouse', text: 'Experience unparalleled luxury in our penthouse suite. With stunning city views, a large terrace, multiple bedrooms, and high-end amenities, our penthouse is the ultimate choice for those seeking the very best.', price: 'From $500/night' },
+            5: { img: 'img/executive-suite.jpg', title: 'Executive Suite', text: 'Designed with business travelers in mind, our executive suites offer a comfortable work area, high-speed internet, and a relaxing bedroom. Stay productive and comfortable during your business trip to Singapore.', price: 'From $220/night' },
+            6: { img: 'img/family-suite.jpg', title: 'Family Suite', text: 'Our family suites are specially designed to accommodate families with children. With multiple bedrooms, a spacious living area, and child-friendly amenities, these suites ensure a comfortable stay for the whole family.', price: 'From $280/night' }
+        };
+
+        function showRoomDetails(roomNumber) {
+            const roomDetail = roomDetails[roomNumber];
+            document.getElementById('roomDetailsImage').src = roomDetail.img;
+            document.getElementById('roomDetailsTitle').innerText = roomDetail.title;
+            document.getElementById('roomDetailsText').innerText = roomDetail.text;
+            document.getElementById('roomDetailsPrice').innerText = roomDetail.price;
+
+            $('#roomDetailsModal').modal('show');
+        }
+    </script>
+</body>
+
+</html>

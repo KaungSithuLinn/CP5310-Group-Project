@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About PureComfort - Your Luxury Stay in Singapore</title>
+  <title>About PureComfort - Luxury Accommodations in Singapore</title>
   <meta name="description"
-    content="Learn about PureComfort's commitment to providing luxury accommodations in Singapore. Discover our story, mission, and team.">
+    content="Learn about PureComfort's commitment to providing exceptional luxury accommodations in Singapore. Discover our story, mission, and team.">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -23,23 +23,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="accommodations.html">Accommodations</a></li>
+          <li class="nav-item active"><a class="nav-link" href="about.html">About <span
+                class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="accommodations.html">Accommodations</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="about.html">About <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><span class="sr-only">Cart</span></a>
+            <a class="nav-link" href="cart.html" aria-label="Shopping Cart">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-badge">0</span>
+            </a>
           </li>
         </ul>
       </div>
@@ -47,12 +41,12 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <header class="hero about-hero">
     <div class="container">
       <h1 class="fade-in">About PureComfort</h1>
       <p class="lead text-white">Discover our story of luxury and comfort</p>
     </div>
-  </section>
+  </header>
 
   <!-- Our Story -->
   <section class="about-section py-5">
@@ -68,7 +62,7 @@
             remained unwavering throughout our journey.</p>
         </div>
         <div class="col-md-6">
-          <img src="img/about-story.jpg" alt="PureComfort's journey" class="img-fluid rounded">
+          <img src="images/about-story.jpg" alt="PureComfort's journey" class="img-fluid rounded">
         </div>
       </div>
     </div>
@@ -89,7 +83,7 @@
           </ul>
         </div>
         <div class="col-md-6 order-md-1">
-          <img src="img/about-mission.jpg" alt="PureComfort's mission" class="img-fluid rounded">
+          <img src="images/about-mission.jpg" alt="PureComfort's mission" class="img-fluid rounded">
         </div>
       </div>
     </div>
@@ -100,30 +94,30 @@
     <div class="container">
       <h2 class="section-title">Meet Our Team</h2>
       <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <div class="team-member">
-            <img src="img/team-1.jpg" alt="Sarah Lim" class="img-fluid rounded-circle">
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="team-member text-center">
+            <img src="images/team-1.jpg" alt="Sarah Lim" class="img-fluid rounded-circle mb-3">
             <h3>Sarah Lim</h3>
             <p>Founder & CEO</p>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="team-member">
-            <img src="img/team-2.jpg" alt="Michael Tan" class="img-fluid rounded-circle">
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="team-member text-center">
+            <img src="images/team-2.jpg" alt="Michael Tan" class="img-fluid rounded-circle mb-3">
             <h3>Michael Tan</h3>
             <p>Operations Manager</p>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="team-member">
-            <img src="img/team-3.jpg" alt="Emily Wong" class="img-fluid rounded-circle">
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="team-member text-center">
+            <img src="images/team-3.jpg" alt="Emily Wong" class="img-fluid rounded-circle mb-3">
             <h3>Emily Wong</h3>
             <p>Customer Experience Director</p>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="team-member">
-            <img src="img/team-4.jpg" alt="David Lee" class="img-fluid rounded-circle">
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="team-member text-center">
+            <img src="images/team-4.jpg" alt="David Lee" class="img-fluid rounded-circle mb-3">
             <h3>David Lee</h3>
             <p>Property Acquisition Specialist</p>
           </div>
@@ -137,8 +131,8 @@
     <div class="container">
       <h2 class="section-title">What Our Guests Say</h2>
       <div class="row">
-        <div class="col-md-4">
-          <div class="card">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
             <div class="card-body">
               <p class="card-text">"PureComfort made our family vacation in Singapore unforgettable. The accommodations
                 were spacious, clean, and felt just like home."</p>
@@ -146,8 +140,8 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
             <div class="card-body">
               <p class="card-text">"As a business traveler, I appreciate the convenience and comfort PureComfort offers.
                 It's my go-to choice whenever I'm in Singapore."</p>
@@ -155,8 +149,8 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
             <div class="card-body">
               <p class="card-text">"The attention to detail and personalized service at PureComfort is unmatched. It
                 truly feels like a luxury home away from home."</p>
@@ -169,7 +163,7 @@
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="bg-dark text-white py-4">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -186,16 +180,20 @@
           </ul>
         </div>
         <div class="col-md-4">
-          <h4>Connect With Us</h4>
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-          </ul>
+          <h4>Newsletter</h4>
+          <form id="newsletter-form">
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="Enter your email" aria-label="Enter your email"
+                required>
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
       <hr>
-      <p class="text-center">&copy; 2024 PureComfort. All Rights Reserved.</p>
+      <p class="text-center mb-0">&copy; 2024 PureComfort. All Rights Reserved.</p>
     </div>
   </footer>
 
@@ -203,6 +201,23 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Update cart badge
+      const cartBadge = document.querySelector('.cart-badge');
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cartBadge.textContent = cart.length;
+
+      // Newsletter form submission
+      document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        // Implement newsletter signup logic here
+        alert(`Thank you for subscribing with email: ${email}`);
+        this.reset();
+      });
+    });
+  </script>
 </body>
 
 </html>

@@ -28,8 +28,12 @@
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><span
-                class="sr-only">Cart</span></a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html" aria-label="Shopping Cart">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-badge">0</span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -125,11 +129,12 @@
         </div>
         <div class="col-md-4">
           <h4>Newsletter</h4>
-          <form>
+          <form id="newsletter-form">
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Enter your email" aria-label="Enter your email">
+              <input type="email" class="form-control" placeholder="Enter your email" aria-label="Enter your email"
+                required>
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">Subscribe</button>
+                <button class="btn btn-primary" type="submit">Subscribe</button>
               </div>
             </div>
           </form>
@@ -143,6 +148,24 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Update cart badge
+      const cartBadge = document.querySelector('.cart-badge');
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cartBadge.textContent = cart.length;
+
+      // Newsletter form submission
+      document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        // Implement newsletter signup logic here
+        alert(`Thank you for subscribing with email: ${email}`);
+        this.reset();
+      });
+    });
+  </script>
 </body>
 
 </html>

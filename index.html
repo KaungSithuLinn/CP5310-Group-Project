@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PureComfort - Your Home Away From Home</title>
+  <title>PureComfort - Luxury Accommodations in Singapore</title>
   <meta name="description"
-    content="Find your perfect stay in Singapore with PureComfort. Luxury accommodations at affordable prices.">
+    content="Experience unparalleled luxury and comfort at PureComfort. Book your perfect stay in the heart of Singapore.">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -16,30 +16,24 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">PureComfort</a>
+      <a class="navbar-brand" href="index.html">PureComfort</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-          </li>
+          <li class="nav-item active"><a class="nav-link" href="index.html">Home <span
+                class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="accommodations.html">Accommodations</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
           <li class="nav-item">
-            <a class="nav-link" href="accommodations.html">Accommodations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><span class="sr-only">Cart</span></a>
+            <a class="nav-link" href="cart.html" aria-label="Shopping Cart">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-badge">0</span>
+            </a>
           </li>
         </ul>
       </div>
@@ -47,50 +41,46 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <header class="hero">
     <div class="container">
       <h1 class="fade-in">Find Your Perfect Stay in Singapore</h1>
-      <div class="search-bar">
-        <input type="text" placeholder="Location | Check-in | Check-out | Guests" aria-label="Search accommodations">
-        <button type="button">Search</button>
-      </div>
+      <p class="lead text-white">Experience luxury and comfort like never before</p>
+      <a href="accommodations.html" class="btn btn-primary btn-lg">Explore Accommodations</a>
     </div>
-  </section>
+  </header>
 
   <!-- Featured Accommodations -->
   <section class="featured-accommodations py-5">
     <div class="container">
       <h2 class="section-title">Featured Accommodations</h2>
       <div class="row">
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-4 mb-4">
           <div class="card">
-            <img src="img/room1.jpg" class="card-img-top" alt="Marina Bay Sands" onclick="showRoomDetails(1)">
+            <img src="img/room1.jpg" class="card-img-top" alt="Deluxe Suite">
             <div class="card-body">
-              <p class="card-text">Marina Bay Sands</p>
+              <h5 class="card-title">Deluxe Suite</h5>
+              <p class="card-text">Experience luxury in our spacious Deluxe Suite.</p>
+              <a href="accommodations.html" class="btn btn-primary">View Details</a>
             </div>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-4 mb-4">
           <div class="card">
-            <img src="img/room2.jpg" class="card-img-top" alt="Presidential Suite" onclick="showRoomDetails(2)">
+            <img src="img/room2.jpg" class="card-img-top" alt="Ocean View Room">
             <div class="card-body">
-              <p class="card-text">Presidential Suite</p>
+              <h5 class="card-title">Ocean View Room</h5>
+              <p class="card-text">Wake up to breathtaking ocean views every morning.</p>
+              <a href="accommodations.html" class="btn btn-primary">View Details</a>
             </div>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-4 mb-4">
           <div class="card">
-            <img src="img/room3.jpg" class="card-img-top" alt="Luxury Room" onclick="showRoomDetails(3)">
+            <img src="img/room3.jpg" class="card-img-top" alt="Family Suite">
             <div class="card-body">
-              <p class="card-text">Luxury Room</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="card">
-            <img src="img/room4.jpg" class="card-img-top" alt="Deluxe Room" onclick="showRoomDetails(4)">
-            <div class="card-body">
-              <p class="card-text">Deluxe Room</p>
+              <h5 class="card-title">Family Suite</h5>
+              <p class="card-text">Perfect for families, with ample space and amenities.</p>
+              <a href="accommodations.html" class="btn btn-primary">View Details</a>
             </div>
           </div>
         </div>
@@ -101,90 +91,44 @@
   <!-- Why Choose Us -->
   <section class="why-choose-us py-5 bg-light">
     <div class="container">
-      <h2 class="section-title">Why Choose Us</h2>
+      <h2 class="section-title">Why Choose PureComfort</h2>
       <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <div class="card">
-            <div class="card-body text-center">
-              <i class="fas fa-star fa-3x mb-3" style="color: var(--accent-color);"></i>
-              <h3 class="card-title">Best Quality</h3>
-              <p class="card-text">Experience unparalleled comfort and luxury.</p>
-            </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-item text-center">
+            <i class="fas fa-star fa-3x mb-3"></i>
+            <h3>Luxury Accommodations</h3>
+            <p>Experience the finest in comfort and style.</p>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="card">
-            <div class="card-body text-center">
-              <i class="fas fa-dollar-sign fa-3x mb-3" style="color: var(--accent-color);"></i>
-              <h3 class="card-title">Affordable Prices</h3>
-              <p class="card-text">Luxury accommodations that won't break the bank.</p>
-            </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-item text-center">
+            <i class="fas fa-map-marker-alt fa-3x mb-3"></i>
+            <h3>Prime Locations</h3>
+            <p>Situated in the heart of Singapore's best areas.</p>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="card">
-            <div class="card-body text-center">
-              <i class="fas fa-map-marker-alt fa-3x mb-3" style="color: var(--accent-color);"></i>
-              <h3 class="card-title">Prime Locations</h3>
-              <p class="card-text">Stay at the heart of Singapore's best areas.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="card">
-            <div class="card-body text-center">
-              <i class="fas fa-concierge-bell fa-3x mb-3" style="color: var(--accent-color);"></i>
-              <h3 class="card-title">Excellent Service</h3>
-              <p class="card-text">Our staff is dedicated to your comfort and satisfaction.</p>
-            </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-item text-center">
+            <i class="fas fa-concierge-bell fa-3x mb-3"></i>
+            <h3>Exceptional Service</h3>
+            <p>Our staff is dedicated to your comfort and satisfaction.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section class="pricing py-5">
-    <div class="container">
-      <h2 class="section-title">PureComfort Tiers</h2>
-      <p class="text-center mb-5">Choose the perfect tier for your stay, all with our signature PureComfort style.</p>
-      <div class="pricing-cards">
-        <div class="pricing-card">
-          <h3>PureComfort Basics</h3>
-          <p>From SGD <strong>1,650</strong>/month</p>
-          <ul>
-            <li>Basic Furnishing</li>
-            <li>Essential Kitchenware</li>
-            <li>Weekly Cleaning</li>
-          </ul>
-          <button class="btn">Discover Basics</button>
-        </div>
-        <div class="pricing-card">
-          <h3>PureComfort Classics</h3>
-          <p>From SGD <strong>1,400</strong>/month</p>
-          <ul>
-            <li>Comprehensive Furnishing</li>
-            <li>Full Kitchenware Set</li>
-            <li>Bi-weekly Cleaning</li>
-          </ul>
-          <button class="btn">Discover Classics</button>
-        </div>
-        <div class="pricing-card">
-          <h3>PureComfort Luxe</h3>
-          <p>From SGD <strong>2,100</strong>/month</p>
-          <ul>
-            <li>Luxury Furnishing</li>
-            <li>Premium Kitchenware</li>
-            <li>Daily Cleaning Service</li>
-          </ul>
-          <button class="btn">Discover Luxe</button>
-        </div>
-      </div>
+  <!-- Call to Action -->
+  <section class="cta py-5">
+    <div class="container text-center">
+      <h2>Ready to Experience PureComfort?</h2>
+      <p class="lead">Book your stay now and indulge in luxury.</p>
+      <a href="accommodations.html" class="btn btn-primary btn-lg">Book Now</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="bg-dark text-white py-4">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -201,62 +145,43 @@
           </ul>
         </div>
         <div class="col-md-4">
-          <h4>Connect With Us</h4>
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-          </ul>
+          <h4>Newsletter</h4>
+          <form id="newsletter-form">
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="Enter your email" aria-label="Enter your email"
+                required>
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
       <hr>
-      <p class="text-center">&copy; 2024 PureComfort. All Rights Reserved.</p>
+      <p class="text-center mb-0">&copy; 2024 PureComfort. All Rights Reserved.</p>
     </div>
   </footer>
-
-  <!-- Room Details Modal -->
-  <div id="roomDetailsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="roomDetailsModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="roomDetailsModalLabel">Room Details</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <img id="roomDetailsImage" src="" class="img-fluid mb-3" alt="Room Details">
-          <p id="roomDetailsText"></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="js/script.js"></script>
-
   <script>
-    function showRoomDetails(roomNumber) {
-      const roomDetails = {
-        1: { img: 'img/room1.jpg', text: 'Marina Bay Sands: Experience luxury at its finest with breathtaking views of Singapore.' },
-        2: { img: 'img/room2.jpg', text: 'Presidential Suite: The ultimate in comfort and style, perfect for discerning travelers.' },
-        3: { img: 'img/room3.jpg', text: 'Luxury Room: A blend of elegance and comfort, designed for a memorable stay.' },
-        4: { img: 'img/room4.jpg', text: 'Deluxe Room: Sophisticated and spacious, offering modern amenities for your comfort.' }
-      };
+    document.addEventListener('DOMContentLoaded', function () {
+      // Update cart badge
+      const cartBadge = document.querySelector('.cart-badge');
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cartBadge.textContent = cart.length;
 
-      const roomDetail = roomDetails[roomNumber];
-      document.getElementById('roomDetailsImage').src = roomDetail.img;
-      document.getElementById('roomDetailsText').innerText = roomDetail.text;
-
-      $('#roomDetailsModal').modal('show');
-    }
+      // Newsletter form submission
+      document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        // Implement newsletter signup logic here
+        alert(`Thank you for subscribing with email: ${email}`);
+        this.reset();
+      });
+    });
   </script>
 </body>
 

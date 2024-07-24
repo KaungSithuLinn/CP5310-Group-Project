@@ -28,7 +28,9 @@
           <li class="nav-item"><a class="nav-link" href="accommodations.html">Accommodations</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item" id="loginMenuItem"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item" id="accountMenuItem" style="display: none;"><a class="nav-link"
+              href="account.html">Account</a></li>
           <li class="nav-item">
             <a class="nav-link" href="cart.html" aria-label="Shopping Cart">
               <i class="fas fa-shopping-cart"></i>
@@ -162,21 +164,54 @@
     </div>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <!-- Welcome Modal -->
+  <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Welcome</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="welcomeMessage"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="js/script.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    $(document).ready(function () {
+      // Check if user is logged in
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        $('#loginMenuItem').hide();
+        $('#accountMenuItem').show();
+
+        let message = user.isNewUser ? `Welcome, ${user.name}!` : `Welcome back, ${user.name}!`;
+        $('#welcomeMessage').text(message);
+        $('#welcomeModal').modal('show');
+
+        // Clear the user data from localStorage after showing the modal
+        localStorage.removeItem('user');
+      }
+
       // Update cart badge
       const cartBadge = document.querySelector('.cart-badge');
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
       cartBadge.textContent = cart.length;
 
       // Newsletter form submission
-      document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+      $('#newsletter-form').on('submit', function (e) {
         e.preventDefault();
-        const email = this.querySelector('input[type="email"]').value;
+        const email = $(this).find('input[type="email"]').val();
         // Implement newsletter signup logic here
         alert(`Thank you for subscribing with email: ${email}`);
         this.reset();

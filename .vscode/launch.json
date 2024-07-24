@@ -1,5 +1,6 @@
 {
   "configurations": [
+
     {
       "type": "pwa-msedge",
       "name": "Launch Microsoft Edge",
@@ -41,6 +42,13 @@
     {
       "name": "Launch Edge and attach DevTools",
       "configurations": ["Launch Microsoft Edge", "Open Edge DevTools"]
+    }
+
+    {
+      "php.validate.executablePath": "C:\\xampp\\php\\php.exe", // For Windows
+      // "php.validate.executablePath": "/Applications/MAMP/bin/php/php7.x.x/bin/php", // For macOS
+      "phpserver.phpPath": "C:\\xampp\\php\\php.exe" // For Windows
+      // "phpserver.phpPath": "/Applications/MAMP/bin/php/php7.x.x/bin/php" // For macOS
     }
   ]
 }

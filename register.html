@@ -52,7 +52,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <form id="registerForm" class="register-form" novalidate>
+                    <form id="registerForm" class="register-form" action="backend/register.php" method="post"
+                        novalidate>
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" class="form-control" id="name" name="name" required>
@@ -93,7 +94,6 @@
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
         <div class="container">

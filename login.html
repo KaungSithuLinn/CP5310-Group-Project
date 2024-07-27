@@ -120,57 +120,46 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
     <script>
-        $(document).ready(function () {
-            // Update cart badge
-            const cartBadge = document.querySelector('.cart-badge');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cartBadge.textContent = cart.length;
-
-            // Form validation and submission
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('loginForm');
+            const loginMessage = document.getElementById('loginMessage');
+
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
                 if (!form.checkValidity()) {
                     event.stopPropagation();
                     form.classList.add('was-validated');
                 } else {
-                    // If form is valid, submit via AJAX
-                    $.ajax({
-                        url: 'backend/login.php',
-                        type: 'post',
-                        data: $('#loginForm').serialize(),
-                        dataType: 'json',
-                        success: function (response) {
-                            console.log("Login response:", response);
-                            if (response.success) {
-                                localStorage.setItem('user', JSON.stringify({
-                                    name: response.name,
-                                    isNewUser: response.is_new_user
-                                }));
+                    const formData = new FormData(form);
+                    fetch('backend/login.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                sessionStorage.setItem('isLoggedIn', 'true');
+                                sessionStorage.setItem('username', data.username);
+                                sessionStorage.setItem('welcomeMessage',
+                                    data.isNewUser ? `Welcome, ${data.username}!` : `Welcome back, ${data.username}!`);
                                 window.location.href = 'index.html';
                             } else {
-                                console.error("Login failed:", response.message);
-                                alert(response.message);
+                                loginMessage.textContent = data.message || 'Login failed. Please try again.';
+                                loginMessage.style.display = 'block';
                             }
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            console.error("AJAX error:", textStatus, errorThrown);
-                            console.log("Response Text:", jqXHR.responseText);
-                            alert('An error occurred. Please try again later.');
-                        }
-                    });
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            loginMessage.textContent = 'An error occurred. Please try again.';
+                            loginMessage.style.display = 'block';
+                        });
                 }
             }, false);
 
-            // Newsletter form submission
-            document.getElementById('newsletter-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]').value;
-                // Implement newsletter signup logic here
-                alert(`Thank you for subscribing with email: ${email}`);
-                this.reset();
-            });
+            // Update cart badge
+            updateCartBadge();
         });
     </script>
 </body>

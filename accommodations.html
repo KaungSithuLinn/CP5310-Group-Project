@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accommodations - PureComfort Luxury Stays in Singapore</title>
+    <title>Accommodations - PureComfort Luxury Accommodations</title>
     <meta name="description"
-        content="Explore our range of luxurious accommodations at PureComfort. From cozy rooms to spacious suites, find your perfect stay in Singapore.">
+        content="Explore our luxurious accommodations at PureComfort. Book your perfect stay in Singapore.">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -43,8 +43,8 @@
     <!-- Hero Section -->
     <header class="hero accommodations-hero">
         <div class="container">
-            <h1 class="fade-in">Our Luxurious Accommodations</h1>
-            <p class="lead text-white">Experience comfort and elegance in the heart of Singapore</p>
+            <h1 class="fade-in">Our Accommodations</h1>
+            <p class="lead text-white">Discover the perfect room for your stay</p>
         </div>
     </header>
 
@@ -52,70 +52,50 @@
     <section class="accommodations-section py-5">
         <div class="container">
             <div class="row">
+                <!-- Room 1 -->
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="img/room11.jpg" class="card-img-top" alt="Deluxe Suite">
+                        <img src="images/room1.jpg" class="card-img-top" alt="Luxury Suite">
                         <div class="card-body">
-                            <h5 class="card-title">Deluxe Suite</h5>
-                            <p class="card-text">A spacious suite with city view.</p>
+                            <h5 class="card-title">Luxury Suite</h5>
+                            <p class="card-text">Experience ultimate comfort in our spacious Luxury Suite.</p>
+                            <p class="card-text"><strong>$300 per night</strong></p>
+                            <button class="btn btn-primary add-to-cart" data-room-id="1" data-room-name="Luxury Suite"
+                                data-room-price="300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Room 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/room2.jpg" class="card-img-top" alt="Deluxe Room">
+                        <div class="card-body">
+                            <h5 class="card-title">Deluxe Room</h5>
+                            <p class="card-text">Enjoy a comfortable stay in our well-appointed Deluxe Room.</p>
                             <p class="card-text"><strong>$200 per night</strong></p>
-                            <button class="btn btn-primary" onclick="showRoomDetails(1)">View Details</button>
-                            <button class="btn btn-secondary add-to-cart" data-room="1">Add to Cart</button>
+                            <button class="btn btn-primary add-to-cart" data-room-id="2" data-room-name="Deluxe Room"
+                                data-room-price="200">Add to Cart</button>
                         </div>
                     </div>
                 </div>
+                <!-- Room 3 -->
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="img/room12.jpg" class="card-img-top" alt="Ocean View Room">
-                        <div class="card-body">
-                            <h5 class="card-title">Ocean View Room</h5>
-                            <p class="card-text">Breathtaking ocean views and modern amenities.</p>
-                            <p class="card-text"><strong>$250 per night</strong></p>
-                            <button class="btn btn-primary" onclick="showRoomDetails(2)">View Details</button>
-                            <button class="btn btn-secondary add-to-cart" data-room="2">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="img/room13.jpg" class="card-img-top" alt="Family Suite">
+                        <img src="images/room3.jpg" class="card-img-top" alt="Family Suite">
                         <div class="card-body">
                             <h5 class="card-title">Family Suite</h5>
-                            <p class="card-text">Perfect for families, with separate living area.</p>
-                            <p class="card-text"><strong>$300 per night</strong></p>
-                            <button class="btn btn-primary" onclick="showRoomDetails(3)">View Details</button>
-                            <button class="btn btn-secondary add-to-cart" data-room="3">Add to Cart</button>
+                            <p class="card-text">Perfect for families, our spacious Family Suite offers comfort for all.
+                            </p>
+                            <p class="card-text"><strong>$400 per night</strong></p>
+                            <button class="btn btn-primary add-to-cart" data-room-id="3" data-room-name="Family Suite"
+                                data-room-price="400">Add to Cart</button>
                         </div>
                     </div>
                 </div>
+                <!-- Add more rooms as needed -->
             </div>
         </div>
     </section>
-
-    <!-- Room Details Modal -->
-    <div class="modal fade" id="roomDetailsModal" tabindex="-1" role="dialog" aria-labelledby="roomDetailsModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="roomDetailsModalLabel">Room Details</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img id="roomImage" src="" alt="Room Image" class="img-fluid mb-3">
-                    <h3 id="roomTitle"></h3>
-                    <p id="roomDescription"></p>
-                    <p id="roomPrice" class="font-weight-bold"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary add-to-cart" id="modalAddToCart">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
@@ -152,67 +132,10 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cartBadge = document.querySelector('.cart-badge');
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            function updateCartBadge() {
-                cartBadge.textContent = cart.length;
-            }
-
-            updateCartBadge();
-
-            const roomDetails = {
-                1: { image: 'images/deluxe-suite.jpg', title: 'Deluxe Suite', description: 'A spacious suite with city view.', price: '$200 per night' },
-                2: { image: 'images/ocean-view.jpg', title: 'Ocean View Room', description: 'Breathtaking ocean views and modern amenities.', price: '$250 per night' },
-                3: { image: 'images/family-suite.jpg', title: 'Family Suite', description: 'Perfect for families, with separate living area.', price: '$300 per night' }
-            };
-
-            window.showRoomDetails = function (roomId) {
-                const room = roomDetails[roomId];
-                document.getElementById('roomImage').src = room.image;
-                document.getElementById('roomTitle').textContent = room.title;
-                document.getElementById('roomDescription').textContent = room.description;
-                document.getElementById('roomPrice').textContent = room.price;
-                document.getElementById('modalAddToCart').setAttribute('data-room', roomId);
-                $('#roomDetailsModal').modal('show');
-            }
-
-            function addToCart(roomId) {
-                const room = roomDetails[roomId];
-                cart.push({ id: roomId, ...room });
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartBadge();
-                alert('Room added to cart!');
-            }
-
-            document.querySelectorAll('.add-to-cart').forEach(button => {
-                button.addEventListener('click', function () {
-                    const roomId = this.getAttribute('data-room');
-                    addToCart(roomId);
-                });
-            });
-
-            document.getElementById('modalAddToCart').addEventListener('click', function () {
-                const roomId = this.getAttribute('data-room');
-                addToCart(roomId);
-                $('#roomDetailsModal').modal('hide');
-            });
-
-            document.getElementById('newsletter-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]').value;
-                // Implement newsletter signup logic here
-                alert(`Thank you for subscribing with email: ${email}`);
-                this.reset();
-            });
-        });
-    </script>
 </body>
 
 </html>

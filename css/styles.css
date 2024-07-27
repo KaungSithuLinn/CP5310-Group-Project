@@ -367,3 +367,137 @@ footer a:hover {
     font-size: 2rem;
   }
 }
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notification.success {
+  background-color: #4CAF50;
+}
+
+.notification.error {
+  background-color: #f44336;
+}
+
+/* Login and Register Form Styles */
+.login-form,
+.register-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2,
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form .form-group,
+.register-form .form-group {
+  margin-bottom: 20px;
+}
+
+.login-form label,
+.register-form label {
+  font-weight: 500;
+}
+
+.login-form .btn,
+.register-form .btn {
+  width: 100%;
+}
+
+/* Account Page Styles */
+.account-section {
+  padding: 50px 0;
+}
+
+.account-info {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.booking-history {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.booking-item {
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 15px 0;
+}
+
+.booking-item:last-child {
+  border-bottom: none;
+}
+
+/* Enhanced Button Styles */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: darken(var(--primary-color), 10%);
+  border-color: darken(var(--primary-color), 10%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Improved Form Input Styles */
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(106, 27, 154, 0.25);
+}
+
+/* Accessibility Improvements */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Additional Responsive Adjustments */
+@media (max-width: 576px) {
+  .notification {
+    left: 20px;
+    right: 20px;
+    text-align: center;
+  }
+
+  .login-form,
+  .register-form {
+    padding: 15px;
+  }
+}

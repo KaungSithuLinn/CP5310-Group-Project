@@ -1,11 +1,7 @@
 <?php
 session_start();
-
-// Unset all session variables
-$_SESSION = array();
-
-// Destroy the session
+session_unset();
 session_destroy();
-
-echo json_encode(["success" => true]);
+header("Location: ../index.html");
+exit;
 ?>

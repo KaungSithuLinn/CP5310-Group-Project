@@ -1,22 +1,49 @@
 <?php
-require 'db.php';
+require_once 'db_config.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
+header('Content-Type: application/json');
 
-    $stmt = $conn->prepare("INSERT INTO contacts (name, email, subject, message) VALUES (:name, :email, :subject, :message)");
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':subject', $subject);
-    $stmt->bindParam(':message', $message);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $subject = $_POST['subject'] ?? '';
+    $message = $_POST['message'] ?? '';
 
-    if ($stmt->execute()) {
-        echo "Message sent successfully!";
-    } else {
-        echo "Error: " . $stmt->errorInfo()[2];
+    // Validate input
+    if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'All fields are required.'
+        ]);
+        exit;
     }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Invalid email format.'
+        ]);
+        exit;
+    }
+
+    try {
+        // Insert contact message into the database
+        $stmt = $pdo->prepare("INSERT INTO contacts (name, email, subject, message) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$name, $email, $subject, $message]);
+
+        echo json_encode([
+            'success' => true,
+            'message' => 'Message sent successfully!'
+        ]);
+    } catch (PDOException $e) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Database error: ' . $e->getMessage()
+        ]);
+    }
+} else {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Invalid request method.'
+    ]);
 }
-?>

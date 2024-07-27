@@ -1,34 +1,53 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Cart management
     const cartBadge = document.querySelector('.cart-badge');
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     function updateCartBadge() {
-        cartBadge.textContent = cart.length;
-        cartBadge.style.display = cart.length > 0 ? 'inline' : 'none';
+        fetch('backend/cart.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const cartItemCount = data.cart.reduce((total, item) => total + item.quantity, 0);
+                    cartBadge.textContent = cartItemCount;
+                    cartBadge.style.display = cartItemCount > 0 ? 'inline' : 'none';
+                }
+            })
+            .catch(error => console.error('Error updating cart badge:', error));
     }
 
     function addToCart(roomId, roomName, roomPrice) {
+        console.log('Adding to cart:', roomId, roomName, roomPrice);
         const formData = new FormData();
+        formData.append('action', 'add');
         formData.append('room_id', roomId);
         formData.append('quantity', 1);
 
-        fetch('cart.php', {
+        fetch('backend/cart.php', {
             method: 'POST',
             body: formData
         })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
-            showNotification('Room added to cart!');
-            updateCartBadge();
+        .then(response => {
+            console.log('Raw response:', response);
+            return response.json();
         })
-        .catch(error => console.error('Error:', error));
+        .then(data => {
+            console.log('Parsed response:', data);
+            if (data.success) {
+                showNotification('Room added to cart!');
+                updateCartBadge();
+            } else {
+                showNotification(data.message || 'Failed to add room to cart.', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showNotification('An error occurred. Please try again.', 'error');
+        });
     }
 
-    // Add to cart buttons
     document.querySelectorAll('.add-to-cart').forEach(button => {
+        console.log('Add to cart button found:', button);
         button.addEventListener('click', function() {
+            console.log('Add to cart button clicked');
             const roomId = this.dataset.roomId;
             const roomName = this.dataset.roomName;
             const roomPrice = parseFloat(this.dataset.roomPrice);
@@ -38,9 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form submissions
     const forms = {
-        'login-form': handleLogin,
-        'register-form': handleRegister,
-        'contact-form': handleContact,
+        'loginForm': handleLogin,
+        'registerForm': handleRegister,
+        'contactForm': handleContact,
         'newsletter-form': handleNewsletter
     };
 
@@ -55,42 +74,66 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function handleLogin(formData) {
-        fetch('login.php', {
+        fetch('backend/login.php', {
             method: 'POST',
             body: formData
         })
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
-            console.log(data);
-            showNotification('Login successful!');
+            if (data.success) {
+                sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('username', data.username);
+                sessionStorage.setItem('welcomeMessage', 
+                    data.isNewUser ? `Welcome, ${data.username}!` : `Welcome back, ${data.username}!`);
+                window.location.href = 'index.html';
+            } else {
+                showNotification(data.message || 'Login failed. Please try again.', 'error');
+            }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            showNotification('An error occurred. Please try again.', 'error');
+        });
     }
 
     function handleRegister(formData) {
-        fetch('register.php', {
+        fetch('backend/register.php', {
             method: 'POST',
             body: formData
         })
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
-            console.log(data);
-            showNotification('Registration successful!');
+            if (data.success) {
+                showNotification('Registration successful! Please log in.');
+                window.location.href = 'login.html';
+            } else {
+                showNotification(data.message || 'Registration failed. Please try again.', 'error');
+            }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            showNotification('An error occurred. Please try again.', 'error');
+        });
     }
 
     function handleContact(formData) {
-        fetch('contact.php', {
+        fetch('backend/contact.php', {
             method: 'POST',
             body: formData
         })
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
-            console.log(data);
-            showNotification('Message sent successfully!');
+            if (data.success) {
+                showNotification('Message sent successfully!');
+                document.getElementById('contactForm').reset();
+            } else {
+                showNotification(data.message || 'Failed to send message. Please try again.', 'error');
+            }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            showNotification('An error occurred. Please try again.', 'error');
+        });
     }
 
     function handleNewsletter(formData) {
@@ -100,9 +143,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Notification function
-    function showNotification(message) {
+    function showNotification(message, type = 'success') {
         const notification = document.createElement('div');
-        notification.className = 'notification';
+        notification.className = `notification ${type}`;
         notification.textContent = message;
         document.body.appendChild(notification);
         setTimeout(() => {
@@ -150,4 +193,45 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // Check for welcome message on page load
+    const welcomeMessage = sessionStorage.getItem('welcomeMessage');
+    if (welcomeMessage) {
+        showNotification(welcomeMessage);
+        sessionStorage.removeItem('welcomeMessage');
+    }
+
+    // Update navigation based on login status
+    updateNavigation();
+
+    function updateNavigation() {
+        const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+        const username = sessionStorage.getItem('username');
+        const navbarNav = document.querySelector('.navbar-nav');
+        const loginLink = navbarNav.querySelector('a[href="login.html"]');
+
+        if (isLoggedIn && username && loginLink) {
+            const accountItem = document.createElement('li');
+            accountItem.className = 'nav-item';
+            accountItem.innerHTML = `<a class="nav-link" href="account.html">Account (${username})</a>`;
+            
+            const logoutItem = document.createElement('li');
+            logoutItem.className = 'nav-item';
+            logoutItem.innerHTML = '<a class="nav-link" href="#" id="logout-link">Logout</a>';
+            
+            loginLink.parentNode.replaceWith(accountItem, logoutItem);
+
+            document.getElementById('logout-link').addEventListener('click', handleLogout);
+        }
+    }
+
+    function handleLogout(e) {
+        e.preventDefault();
+        sessionStorage.removeItem('isLoggedIn');
+        sessionStorage.removeItem('username');
+        showNotification('You have been logged out.');
+        window.location.href = 'index.html';
+    }
+
+    updateCartBadge();
 });

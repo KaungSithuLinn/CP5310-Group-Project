@@ -1,57 +1,60 @@
 <?php
 session_start();
-require_once "db_config.php";
+require_once 'db_config.php';
 
 header('Content-Type: application/json');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-    $password = $_POST["password"];
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-    if (!$email || !$password) {
-        echo json_encode(["success" => false, "message" => "Email and password are required."]);
+    if (empty($email) || empty($password)) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Email and password are required.'
+        ]);
         exit;
     }
 
     try {
-        $sql = "SELECT id, name, email, password, last_login FROM users WHERE email = :email";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-        $stmt->execute();
+        // Fetch user from database
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->execute([$email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($stmt->rowCount() == 1) {
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            $id = $row["id"];
-            $name = $row["name"];
-            $hashed_password = $row["password"];
-            $last_login = $row["last_login"];
+        if ($user && password_verify($password, $user['password'])) {
+            // Check if this is the user's first login
+            $isNewUser = !isset($user['last_login']) || is_null($user['last_login']);
 
-            if (password_verify($password, $hashed_password)) {
-                $_SESSION["loggedin"] = true;
-                $_SESSION["id"] = $id;
-                $_SESSION["name"] = $name;
-                $_SESSION["email"] = $email;
+            // Update last login time
+            $updateStmt = $pdo->prepare("UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = ?");
+            $updateStmt->execute([$user['id']]);
 
-                $is_new_user = ($last_login === null);
+            // Set session variables
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['name'];
 
-                // Update last login time
-                $update_login_sql = "UPDATE users SET last_login = NOW() WHERE id = :id";
-                $update_login_stmt = $pdo->prepare($update_login_sql);
-                $update_login_stmt->bindParam(":id", $id, PDO::PARAM_INT);
-                $update_login_stmt->execute();
-
-                echo json_encode(["success" => true, "name" => $name, "is_new_user" => $is_new_user]);
-            } else {
-                echo json_encode(["success" => false, "message" => "Invalid email or password."]);
-            }
+            echo json_encode([
+                'success' => true,
+                'username' => $user['name'],
+                'isNewUser' => $isNewUser,
+                'message' => $isNewUser ? 'Welcome to PureComfort!' : 'Welcome back!'
+            ]);
         } else {
-            echo json_encode(["success" => false, "message" => "Invalid email or password."]);
+            echo json_encode([
+                'success' => false,
+                'message' => 'Invalid email or password.'
+            ]);
         }
     } catch (PDOException $e) {
-        error_log("Database error: " . $e->getMessage());
-        echo json_encode(["success" => false, "message" => "An error occurred. Please try again later.", "debug" => $e->getMessage()]);
+        echo json_encode([
+            'success' => false,
+            'message' => 'Database error: ' . $e->getMessage()
+        ]);
     }
 } else {
-    echo json_encode(["success" => false, "message" => "Invalid request method."]);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Invalid request method.'
+    ]);
 }
-?>

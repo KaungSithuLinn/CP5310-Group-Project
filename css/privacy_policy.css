@@ -1,0 +1,40 @@
+/* General styles for the Privacy Policy page */
+.privacy-hero {
+    background-color: #343a40;
+    /* Dark background */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.privacy-section {
+    background-color: #f8f9fa;
+    /* Light background */
+    padding: 40px 0;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #343a40;
+    /* Dark text color */
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Additional styling for lists */
+ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}

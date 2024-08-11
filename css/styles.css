@@ -63,7 +63,7 @@ h3 {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(106, 27, 154, 0.8), rgba(149, 117, 205, 0.8)), url('img/hero-bg.jpg');
+  background: linear-gradient(rgba(106, 27, 154, 0.8), rgba(149, 117, 205, 0.8));
   background-size: cover;
   background-position: center;
   padding: 100px 0;
@@ -301,8 +301,10 @@ footer a:hover {
 }
 
 .team-member img {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  /* Increased image size */
+  height: 250px;
+  /* Increased image size */
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 15px;
@@ -332,6 +334,160 @@ footer a:hover {
 
 .fade-in {
   animation: fadeIn 1s ease-in;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes slotMachine {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.slot-machine {
+  animation: slotMachine 2s ease-in-out infinite;
+}
+
+@keyframes buttonFeedback {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.button-feedback {
+  animation: buttonFeedback 0.3s ease-in-out;
+}
+
+@keyframes translateScaleFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.translate-scale-fade {
+  animation: translateScaleFade 1s ease-in-out;
+}
+
+@keyframes hoverEffect {
+  0% {
+    color: #000;
+  }
+
+  100% {
+    color: #f00;
+  }
+}
+
+.header-hover:hover {
+  animation: hoverEffect 0.5s forwards;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes textHighlight {
+  0% {
+    background-color: yellow;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.text-highlight {
+  animation: textHighlight 1s forwards;
+}
+
+@keyframes trippyRotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.trippy-rotation {
+  animation: trippyRotation 2s linear infinite;
+}
+
+@keyframes speedyTruck {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.speedy-truck {
+  animation: speedyTruck 10s linear infinite;
+}
+
+@keyframes snowGlobe {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.snow-globe {
+  animation: snowGlobe 5s ease-in-out infinite;
 }
 
 /* Responsive Design */
